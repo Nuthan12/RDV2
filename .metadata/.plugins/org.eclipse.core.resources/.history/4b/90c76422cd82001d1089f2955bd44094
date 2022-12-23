@@ -1,0 +1,41 @@
+package com.retail.delight.dao;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.retail.delight.entity.Account;
+
+@Transactional
+@Repository
+public class AccountDAO {
+
+    @Autowired
+    private SessionFactory sessionFactory;
+
+    public Account findAccount(String userName) {
+        Session session = this.sessionFactory.getCurrentSession();
+        return session.find(Account.class, userName);
+    }
+    
+    
+   public String findPasswordByUserName(String userName){
+	   Session session = this.sessionFactory.getCurrentSession();
+	   String password=
+       return session.find(Account.class, userName);
+   }
+   
+   public Account getCustomerInfo(String userName) {
+       Session session = this.sessionFactory.getCurrentSession();
+       Account account = session.find(Account.class, userName);
+       if (account == null) {
+           return null;
+       }
+       return new Account(account.getEncrytedPassword());
+    		   
+   }
+
+}

@@ -20,5 +20,22 @@ public class AccountDAO {
         Session session = this.sessionFactory.getCurrentSession();
         return session.find(Account.class, userName);
     }
+    
+    
+   
+   
+   public String getAccountPassword(String userName) {
+       Session session = this.sessionFactory.getCurrentSession();
+       String pass="";
+       Account account = session.find(Account.class, userName);
+       if (account == null) {
+           return null;
+       }
+       else{
+    	   pass=account.getEncrytedPassword();
+       }
+       return pass;
+    		   
+   }
 
 }

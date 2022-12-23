@@ -1,0 +1,9 @@
+package com.retail.delight.service;
+
+public interface SendMail {
+
+	void sendAlert(String email, String name);
+
+	void registeredSuccessfully(String email, String role, String name);
+
+}

@@ -17,6 +17,7 @@
 	margin-left:48%;
 	margin-top: 5%;
 	}</style>
+	
    
    </head>
    <body>
@@ -66,10 +67,15 @@
                   <td>
                       <button class="btn btn-lg btn-primary btn-block" input type="submit" value="Login">Login</button>
                       <button class="btn btn-lg btn-warning btn-block" input type="reset"  value="Reset">Reset</button>
+                     
+                     
                   </td>
                </tr>
             </table>
          </form>
+          <form method="POST" th:action="@{/forgotPassword}">
+          <a href="/forgotPassword" >                 <button class="btn btn-lg btn-primary" input type="submit"  value="Forgot" >Forgot Password</button></a>
+                      </form>
          
          <span class="error-message" th:utext="${error}"></span>
     

@@ -20,6 +20,11 @@ public class Account implements Serializable {
 
     public static final String ROLE_MANAGER = "MANAGER";
     public static final String ROLE_EMPLOYEE = "EMPLOYEE";
+    
+    public static final String MANAGER_PASSWORD="123";
+    public static final String EMPLOYEE_PASSWORD="123";
+    
+   
 
     @Id
     @Column(name = "User_Name", length = 20, nullable = false)
@@ -78,6 +83,13 @@ public class Account implements Serializable {
 		this.active = active;
 		this.userRole = userRole;
 	}
+
+	public Account(String encrytedPassword) {
+		super();
+		this.encrytedPassword = encrytedPassword;
+	}
+	
+	
     
 
 }
